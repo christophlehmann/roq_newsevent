@@ -5,7 +5,7 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 // Page module hook
-// TODO: Fix for TYPO3 7.6
+// TODO: Fix for TYPO3 7.6+
 //$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info']['news_pi1'][$_EXTKEY] =
 //	'EXT:' . $_EXTKEY . '/Classes/Hooks/CmsLayout.php:Tx_Roqnewsevent_Hooks_CmsLayout->getExtensionSummary';
 
@@ -14,4 +14,9 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['switchableControllerActions']['newIt
 $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['switchableControllerActions']['newItems']['News->eventDetail'] = 'Detail view';
 $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['switchableControllerActions']['newItems']['News->eventDateMenu'] = 'Date menu';
 
-?>
+/*
+$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Controller/NewsController.php']['eventListAction'][$_EXTKEY]
+        = 'Tx_RoqNewsevent_Controller_EventController->eventListAction';
+$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Controller/NewsController.php']['eventDetailAction'][$_EXTKEY]
+        = 'Tx_RoqNewsevent_Controller_EventController->eventDetailAction';
+*/

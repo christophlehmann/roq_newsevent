@@ -6,6 +6,7 @@ config.tx_extbase {
 			Tx_RoqNewsevent_Domain_Model_Event {
 				mapping {
 					tableName = tx_news_domain_model_news
+					recordType = 0
 					columns {
 						tx_roqnewsevent_is_event.mapOnProperty = isEvent
 						tx_roqnewsevent_startdate.mapOnProperty = eventStartdate
@@ -17,6 +18,13 @@ config.tx_extbase {
 				}
 			}
 		}
+
+		GeorgRinger\News\Domain\Model\News {
+			subclasses {
+				0 = Tx_RoqNewsevent_Domain_Model_Event
+			}
+		}
+
 	}
 
 	objects {
@@ -24,23 +32,12 @@ config.tx_extbase {
 			className = Tx_RoqNewsevent_Controller_EventController
 		}
 	}
+
 }
+
 
 # Event TypoScript configuration
 plugin.tx_news {
-	persistence {
-		classes {
-			GeorgRinger\News\Domain\Model\News {
-				subclasses {
-					# hier wichtig: index 0 überschreiben für die
-					# normale News-Ansicht
-					# 0 == Typ-Auswahl an News-Datensatz
-					0 = Tx_RoqNewsevent_Domain_Model_Event
-				}
-			}
-		}
-	}
-
 	view {
 		event {
 			partialRootPath = {$plugin.roq_newsevent.view.partialRootPath}
