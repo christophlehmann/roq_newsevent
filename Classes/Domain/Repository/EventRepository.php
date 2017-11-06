@@ -79,7 +79,10 @@ class Tx_RoqNewsevent_Domain_Repository_EventRepository extends \GeorgRinger\New
 
 		// archived
 		if ($demand->getArchiveRestriction() == 'archived') {
-			$constraints[] = $query->logicalNot($this->createIsActiveConstraint($query));
+			$activeConstraint = $this->createIsActiveConstraint($query);
+			if ($activeConstraint) {
+				$constraints[] = $query->logicalNot($activeConstraint);
+			}
 			// non-archived (active)
 		} elseif ($demand->getArchiveRestriction() == 'active') {
 			$constraints[] = $this->createIsActiveConstraint($query);
