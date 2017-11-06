@@ -1,4 +1,5 @@
 <?php
+namespace Networkteam\RoqNewsevent\ViewHelpers;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Fluid".                      *
@@ -98,11 +99,10 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  * @api
  */
-class Tx_RoqNewsevent_ViewHelpers_IfViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractConditionViewHelper {
+class IfViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractConditionViewHelper {
 
 	public function initializeArguments() {
 		parent::initializeArguments();
-		$this->registerArgument('condition', 'mixed', 'View helper condition expression, evaluated', TRUE);
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Tx_RoqNewsevent_ViewHelpers_IfViewHelper extends \TYPO3\CMS\Fluid\Core\Vie
 			return $this->renderElseChild();
 		} elseif (is_array($condition)) {
 			return (count($condition) > 0);
-		} elseif ($condition instanceof Countable) {
+		} elseif ($condition instanceof \Countable) {
 			return (count($condition) > 0);
 		} elseif (is_string($condition) && trim($condition) === '') {
 			if (trim($condition) === '') {
@@ -133,11 +133,11 @@ class Tx_RoqNewsevent_ViewHelpers_IfViewHelper extends \TYPO3\CMS\Fluid\Core\Vie
 				$condition = '\'' . $condition . '\'';
 			}
 		} elseif (is_object($condition)) {
-			if ($condition instanceof Iterator && method_exists($condition, 'count')) {
+			if ($condition instanceof \Iterator && method_exists($condition, 'count')) {
 				return (call_user_method('count', $condition) > 0);
-			} else if ($condition instanceof DateTime) {
+			} else if ($condition instanceof \DateTime) {
 				return $this->renderThenChild();
-			} else if ($condition instanceof stdClass) {
+			} else if ($condition instanceof \stdClass) {
 				return $this->renderThenChild();
 			} else {
 				$access = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Reflection_ObjectAccess');

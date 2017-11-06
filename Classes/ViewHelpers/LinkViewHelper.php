@@ -1,4 +1,5 @@
 <?php
+namespace Networkteam\RoqNewsevent\ViewHelpers;
 
 /**
  * Copyright (c) 2012, ROQUIN B.V. (C), http://www.roquin.nl
@@ -8,7 +9,7 @@
  * @description:    ViewHelper to render proper links for event detail view
  */
 
-class Tx_RoqNewsevent_ViewHelpers_LinkViewHelper extends \GeorgRinger\News\ViewHelpers\LinkViewHelper {
+class LinkViewHelper extends \GeorgRinger\News\ViewHelpers\LinkViewHelper {
 
     /**
      * Render link to news item or internal/external pages
