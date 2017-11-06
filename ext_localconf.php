@@ -13,10 +13,3 @@ $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['switchableControllerActions']['newIt
 $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['switchableControllerActions']['newItems']['News->eventList;News->eventDetail'] = 'List view';
 $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['switchableControllerActions']['newItems']['News->eventDetail'] = 'Detail view';
 $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['switchableControllerActions']['newItems']['News->eventDateMenu'] = 'Date menu';
-
-/*
-$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Controller/NewsController.php']['eventListAction'][$_EXTKEY]
-        = 'Tx_RoqNewsevent_Controller_EventController->eventListAction';
-$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Controller/NewsController.php']['eventDetailAction'][$_EXTKEY]
-        = 'Tx_RoqNewsevent_Controller_EventController->eventDetailAction';
-*/
